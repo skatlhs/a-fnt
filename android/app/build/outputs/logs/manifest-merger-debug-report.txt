@@ -5,6 +5,7 @@ INJECTED from /Users/jonathanbelok/Documents/github/a-fnt/android/app/src/main/A
 INJECTED from /Users/jonathanbelok/Documents/github/a-fnt/android/app/src/main/AndroidManifest.xml:1:1-26:12
 INJECTED from /Users/jonathanbelok/Documents/github/a-fnt/android/app/src/main/AndroidManifest.xml:1:1-26:12
 MERGED from /Users/jonathanbelok/Documents/github/a-fnt/android/app/src/main/AndroidManifest.xml:1:1-26:12
+MERGED from [:react-native-linear-gradient] /Users/jonathanbelok/Documents/github/a-fnt/node_modules/react-native-linear-gradient/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-vector-icons] /Users/jonathanbelok/Documents/github/a-fnt/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [com.facebook.react:react-native:0.60.5] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/5136cc79fc484fd8bb2e15fed771ea6b/AndroidManifest.xml:2:1-13:12
 MERGED from [org.webkit:android-jsc:r245459] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/b580584833616800b447243c105731e0/AndroidManifest.xml:2:1-11:12
@@ -133,6 +134,8 @@ uses-sdk
 INJECTED from /Users/jonathanbelok/Documents/github/a-fnt/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/jonathanbelok/Documents/github/a-fnt/android/app/src/main/AndroidManifest.xml
 INJECTED from /Users/jonathanbelok/Documents/github/a-fnt/android/app/src/main/AndroidManifest.xml
+MERGED from [:react-native-linear-gradient] /Users/jonathanbelok/Documents/github/a-fnt/node_modules/react-native-linear-gradient/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-linear-gradient] /Users/jonathanbelok/Documents/github/a-fnt/node_modules/react-native-linear-gradient/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] /Users/jonathanbelok/Documents/github/a-fnt/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] /Users/jonathanbelok/Documents/github/a-fnt/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.60.5] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/5136cc79fc484fd8bb2e15fed771ea6b/AndroidManifest.xml:7:5-9:41

@@ -6,8 +6,7 @@ import {
   View,
   Image,
   ImageBackground,
-  TouchableOpacity,
-  TouchableWithoutFeedback
+  TouchableOpacity
 } from "react-native";
 
 import colors from "../styles/colors";
@@ -45,13 +44,14 @@ export default class LoggedOut extends Component {
                 source={require("../assets/img/bestrongLogo.png")}
                 style={styles.logo2}
               />
-              <Text style={styles.welcomeText}>A New Way To Socialize</Text>
+                     <Text style={styles.slogan}>A new way to socialize</Text>
+           
             </View>
 
             <RoundedButton
               style={styles.createAccountButton}
               text="Create a New Account!"
-              textColor={colors.mainPurple}
+              textColor={colors.peach}
               background={colors.white}
               fontSize={200}
               icon={
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     height: 60,
     width: 140,
     marginTop: 20,
-    marginBottom: 80,
+    marginBottom: 10,
     justifyContent: "center",
     alignItems: "center"
   },
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
   },
 
   heartButtonIcon: {
-    color: colors.mainPurple,
+    color: colors.peach,
     position: "relative",
     left: 20,
     top: 2,
@@ -180,5 +180,11 @@ const styles = StyleSheet.create({
 
   termLink: {
     color: colors.white
-  }
+  },
+  
+  slogan: {
+    fontFamily: Fonts.JosefinSansBold,
+    color: colors.white,
+    marginBottom: 120
+  },
 });

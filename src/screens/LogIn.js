@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import {
-  Platform,
   StyleSheet,
   Text,
   View,
   Image,
-  ImageBackground,
   TouchableOpacity,
   ScrollView,
   KeyboardAvoidingView
@@ -13,23 +11,38 @@ import {
 
 import colors from "../styles/colors";
 import RoundedButton from "../components/buttons/RoundedButton";
+import NextArrowButton from "../components/buttons/NextArrowButton";
 import GradientButton from "../components/buttons/GradientButton";
 import { Fonts } from "../assets/utils/fonts";
 import Icon from "react-native-vector-icons/FontAwesome";
 import InputField from "../components/form/InputField";
-
+import Notification from '../components/Notification';
 import LinearGradient from "react-native-linear-gradient";
 const COLORS_GRADIENTS = ["#ff3d78", "#ff7537"];
+
+
 export default class LogIn extends Component {
-  onLoginPress() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      formValid: false,
+    }
+    this.handleCloseNotification = this.handleCloseNotification.bind(this);
+  }
+  handleNextButton() {
     alert("Login Button Pressed");
   }
-
+  
   onCreatePress() {
     alert("Create Button Pressed");
   }
 
+  handleCloseNotification() {
+    this.setState({ formValid: true });
+  }
   render() {
+    const { formValid } = this.state;
+    const showNotification = formValid ? false : true;
     return (
       <KeyboardAvoidingView style={styles.wrapper}>
         <View style={styles.centerWrapper}>
@@ -63,35 +76,29 @@ export default class LogIn extends Component {
               customStyle={{ marginBottom: 30 }}
             />
 
-            <GradientButton
-              text="Log In"
-              textColor={colors.white}
-              handleOnPress={this.onLoginPress}
-            />   
-
+          <NextArrowButton
+            handleNextButton={this.handleNextButton}
+          />
+              
             <View style={styles.centerWrapper}>
               <TouchableOpacity>
                 <Text style={styles.forgot}>Forgot Password?</Text>
               </TouchableOpacity>
             </View>
-            <View style={styles.spacer}></View>
-            <View style={styles.centerWrapper}>
-              <Text style={styles.slogan}>Haven't signed up Yet?</Text>
-            </View>
-            <RoundedButton
-              style={styles.createAccountButton}
-              text="Create a New Account!"
-              textColor={colors.peach}
-              background={colors.white}
-              fontSize={20}
-              icon={
-                <Icon name="user-circle" size={20} style={styles.buttonIcon} />
-              }
-              handleOnPress={this.onCreatePress}
-            />
+
           </ScrollView>
         </View>
+        <View style={showNotification ? {marginTop: 10} : {}}>
+            <Notification
+              showNotification={showNotification}
+              handleCloseNotification={this.handleCloseNotification}
+              type="Error:"
+              firstLine="Ooops! Looks like log in info is wrong : /"
+              secondLine="Please try again."
+             />
+          </View>
       </KeyboardAvoidingView>
+
     );
   }
 }
@@ -100,13 +107,13 @@ const styles = StyleSheet.create({
   wrapper: {
     display: "flex",
     flex: 1,
-    padding: 30,
     fontFamily: Fonts.JosefinSansBold
   },
 
   scrollViewWrapper: {
-    marginTop: 20,
-    flex: 1
+    marginTop: 5,
+    flex: 1,
+    padding: 30,
   },
 
   scrollView: {
@@ -120,7 +127,7 @@ const styles = StyleSheet.create({
   slogan: {
     fontFamily: Fonts.JosefinSansBold,
     color: colors.peach,
-    marginBottom: 20
+    marginBottom: 15
   },
 
   welcomeBack: {
@@ -133,7 +140,7 @@ const styles = StyleSheet.create({
   logo2: {
     height: 60,
     width: 140,
-    marginTop: 20,
+    marginTop: 30,
     marginBottom: 5,
     justifyContent: "center",
     alignItems: "center"
@@ -144,7 +151,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     letterSpacing: -1,
     color: colors.peach,
-    marginBottom: 40
+    marginBottom: 20
   },
 
   buttonIcon: {

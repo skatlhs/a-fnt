@@ -7,8 +7,21 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import { Fonts } from "../../assets/utils/fonts";
 
 export default class Inputfield extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      secureInput: props.inputType === 'text' || props.inputType === 'email' ? false : true, 
+    };
+    this.toggleShowPass = this.toggleShowPass.bind(this);
+  }
+  
+  toggleShowPass() {
+    this.setState({ secureInput:!this.state.secureInput });
+  }
+  
   render() {
     const { labelText, labelTextSize, labelColor, borderColor, textColor, inputType, customStyle } = this.props;
+    const { secureInput } = this.state;
     const fontSize = labelTextSize || 18;
     const color = labelColor || colors.peach;
     const borderBottomColor = borderColor;
@@ -17,14 +30,20 @@ export default class Inputfield extends Component {
     return (
       <View style={[{customStyle}, styles.wrapper]}>
         <Text style={[{ fontSize, color }, styles.label]}>{labelText} </Text>
-
+        {inputType === 'password' ?
+          <TouchableOpacity 
+            style={styles.showButton}
+            onPress={this.toggleShowPass}
+          >
+            <Text style={styles.showHide}>{secureInput ? 'Show' : 'Hide'}</Text>
+          </TouchableOpacity>
+          : null }
         <View style={[{ borderColor }, styles.borderBottom]}>
           <TextInput 
             autoCorrect={false} 
             style={[{color: inputColor}, styles.inputField]}
-            secureTextEntry={inputType === 'password'}
+            secureTextEntry={secureInput}
           />
-      
         </View>
       </View>
     );
@@ -59,5 +78,17 @@ const styles = StyleSheet.create({
   
   inputField: {
     fontSize: 18
-  }
+  },
+  
+  showButton: {
+    position: 'absolute',
+    right: 20,
+    top: 5
+  },
+  
+  showHide: {
+    color: colors.mainOrange,
+    fontFamily: Fonts.JosefinSansBold
+  },
+  
 });

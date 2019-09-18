@@ -41,8 +41,8 @@ export default class LoggedOut extends Component {
           <View style={styles.welcomeWrapper}>
             <View style={styles.centerWrapper}>
               <Image
-                source={require("../assets/img/bestrongLogo.png")}
                 style={styles.logo2}
+                source={require("../assets/img/bestrongLogo.png")}
               />
                      <Text style={styles.slogan}>A new way to socialize</Text>
            
@@ -126,12 +126,27 @@ const styles = StyleSheet.create({
   logo2: {
     height: 60,
     width: 140,
-    marginTop: 20,
     marginBottom: 10,
     justifyContent: "center",
     alignItems: "center"
   },
 
+  slogan: {
+    fontFamily: Fonts.JosefinSansBold,
+    color: colors.white,
+    marginBottom: 135
+  },
+
+  logo2: {
+    height: 60,
+    width: 140,
+    marginTop: 30,
+    marginBottom: 5,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  
+  
   welcomeText: {
     color: colors.white,
     fontSize: 25,
@@ -181,10 +196,5 @@ const styles = StyleSheet.create({
   termLink: {
     color: colors.white
   },
-  
-  slogan: {
-    fontFamily: Fonts.JosefinSansBold,
-    color: colors.white,
-    marginBottom: 120
-  },
+
 });

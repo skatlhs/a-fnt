@@ -25,21 +25,63 @@ export default class LogIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      formValid: false,
+      formValid: true,
+      validEmail: false,
+      emailAddress: '',
+      validPassword: false,
     }
     this.handleCloseNotification = this.handleCloseNotification.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleNextButton = this.handleNextButton.bind(this);
+    this.toggleNextButtonState = this.toggleNextButtonState.bind(this);
   }
   handleNextButton() {
-    alert("Login Button Pressed");
-  }
-  
-  onCreatePress() {
-    alert("Create Button Pressed");
+   if (this.state.emailAddress === 'this@cc.ca' && this.state.validPassword) {
+     alert('success');
+     this.setState({ formValid: true});
+   } else {
+     this.setState({ formValid: false});
+   }
   }
 
   handleCloseNotification() {
     this.setState({ formValid: true });
   }
+  
+  handleEmailChange(email) {
+    const emailCheckRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    this.setState({ emailAddress: email });
+
+    if (!this.state.validEmail) {
+      if (emailCheckRegex.test(email)) {
+      	this.setState({ validEmail: true });
+      }
+    } else {
+      if (!emailCheckRegex.test(email)) {
+      	this.setState({ validEmail: false });
+      }
+    }
+  }
+  
+  handlePasswordChange(password) {
+    if (!this.state.validPassword) {
+      if (password.length > 8) {
+        this.setState({ validPassword: true });
+      }
+    } else if (password <= 8) {
+      this.setState({ validPassword: false });
+    }
+  }
+
+  toggleNextButtonState() {
+    const { validEmail, validPassword } = this.state;
+    if (validEmail && validPassword) {
+      return false;
+    } 
+    return true;
+  }
+  
   render() {
     const { formValid } = this.state;
     const showNotification = formValid ? false : true;
@@ -64,6 +106,7 @@ export default class LogIn extends Component {
               textColor={colors.peach}
               inputType="email"
               customStyle={{ marginBottom: 30 }}
+              onChangeText={this.handleEmailChange}
             />
 
             <InputField
@@ -74,10 +117,13 @@ export default class LogIn extends Component {
               textColor={colors.mainOrange}
               inputType="password"
               customStyle={{ marginBottom: 30 }}
+              onChangeText={this.handlePasswordChange}
+              
             />
 
           <NextArrowButton
             handleNextButton={this.handleNextButton}
+            disabled={this.toggleNextButtonState()}
           />
               
             <View style={styles.centerWrapper}>
@@ -93,8 +139,8 @@ export default class LogIn extends Component {
               showNotification={showNotification}
               handleCloseNotification={this.handleCloseNotification}
               type="Error:"
-              firstLine="Ooops! Looks like log in info is wrong : /"
-              secondLine="Please try again."
+              firstLine="Ooops! Looks like your log in info is wrong : /"
+              secondLine="Give it another shot!"
              />
           </View>
       </KeyboardAvoidingView>

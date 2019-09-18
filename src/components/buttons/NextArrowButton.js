@@ -12,10 +12,11 @@ const COLORS_GRADIENTS = ["#ff3d78", "#ff7537"];
 export default class NextArrowButton extends Component {
   render() {
   	const { disabled, handleNextButton } = this.props;
-  	const opacityStyle = disabled ? 0.2 : 0.6;
+  	const opacityStyle = disabled ? 0.6 : 1;
     return (
       <View style={styles.buttonWrapper}>
         <TouchableOpacity
+          style={[{opacity: opacityStyle}, styles.button]}
           onPress={handleNextButton}
           disabled={disabled}
         >

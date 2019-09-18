@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     marginBottom: 2,
     width: '100%',
-    marginLeft: 20
+    marginLeft: 5
   },
   
   errorText: {

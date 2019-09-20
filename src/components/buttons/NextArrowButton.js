@@ -18,7 +18,7 @@ export default class NextArrowButton extends Component {
         <TouchableOpacity
           style={[{opacity: opacityStyle}, styles.button]}
           onPress={handleNextButton}
-          disabled={disabled}
+          //disabled={disabled}
         >
         <LinearGradient
           start={{ x: 0.0, y: 0.0 }}
@@ -53,7 +53,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 50,
-    backgroundColor: colors.white,
   },
   icon: {
     marginRight: -2,

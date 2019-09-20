@@ -53,8 +53,8 @@ export default class Notification extends Component {
       <Animated.View style={[{transform:[{ translateY: positionValue}]}, styles.wrapper]}>
       <LinearGradient
           style={styles.gradient}
-          start={{ x: 0.0, y: 0.0 }}
-          end={{ x: 1.0, y: 1.0 }}
+          start={{ x: 1.0, y: 0.0 }}
+          end={{ x: 0.0, y: 1.0 }}
           colors={COLORS_GRADIENTS}
         >
         <View style={styles.notificationContent}>

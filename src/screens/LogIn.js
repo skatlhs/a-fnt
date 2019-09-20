@@ -17,6 +17,7 @@ import { Fonts } from "../assets/utils/fonts";
 import Icon from "react-native-vector-icons/FontAwesome";
 import InputField from "../components/form/InputField";
 import Notification from '../components/Notification';
+import Loader from '../components/Loader';
 import LinearGradient from "react-native-linear-gradient";
 const COLORS_GRADIENTS = ["#ff3d78", "#ff7537"];
 
@@ -29,6 +30,7 @@ export default class LogIn extends Component {
       validEmail: false,
       emailAddress: '',
       validPassword: false,
+      loadingVisible: false,
     }
     this.handleCloseNotification = this.handleCloseNotification.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -37,12 +39,15 @@ export default class LogIn extends Component {
     this.toggleNextButtonState = this.toggleNextButtonState.bind(this);
   }
   handleNextButton() {
-   if (this.state.emailAddress === 'this@cc.ca' && this.state.validPassword) {
-     alert('success');
-     this.setState({ formValid: true});
-   } else {
-     this.setState({ formValid: false});
-   }
+    this.setState({ loadingVisible: true });
+    
+    setTimeout(() =>{
+    if (this.state.emailAddress === 'this@cc.ca' && this.state.validPassword) {
+      this.setState({ formValid: true, loadingVisible: false});
+    } else {
+      this.setState({ formValid: false, loadingVisible: false});
+      }
+    }, 2000);
   }
 
   handleCloseNotification() {
@@ -83,7 +88,7 @@ export default class LogIn extends Component {
   }
   
   render() {
-    const { formValid } = this.state;
+    const { formValid, loadingVisible } = this.state;
     const showNotification = formValid ? false : true;
     return (
       <KeyboardAvoidingView style={styles.wrapper}>
@@ -123,7 +128,7 @@ export default class LogIn extends Component {
 
           <NextArrowButton
             handleNextButton={this.handleNextButton}
-            disabled={this.toggleNextButtonState()}
+            //disabled={this.toggleNextButtonState()}
           />
               
             <View style={styles.centerWrapper}>
@@ -143,6 +148,10 @@ export default class LogIn extends Component {
               secondLine="Give it another shot!"
              />
           </View>
+        <Loader
+          modalVisible={loadingVisible}
+          animationType="fade"
+        />
       </KeyboardAvoidingView>
 
     );

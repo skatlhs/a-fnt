@@ -1,4 +1,4 @@
-#Sun Sep 15 13:40:25 EDT 2019
+#Fri Sep 20 17:14:58 EDT 2019
 base.0=/Users/jonathanbelok/Documents/github/a-fnt/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex

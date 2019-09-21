@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Animated, Easing } from "react-native";
 
 import { PropTypes } from "prop-types";
 import colors from "../../styles/colors";
@@ -11,8 +11,20 @@ export default class Inputfield extends Component {
     super(props);
     this.state = {
       secureInput: props.inputType === 'text' || props.inputType === 'email' ? false : true, 
+      scaleCheckmarkValue: new Animated.Value(0),
     };
     this.toggleShowPass = this.toggleShowPass.bind(this);
+  }
+  
+  scaleCheckmark(value) {
+    Animated.timing(
+      this.state.scaleCheckmarkValue,
+      {
+        toValue: value,
+        duration: 400,
+        easing: Easing.easeOutBack,
+      }
+    ).start();
   }
   
   toggleShowPass() {
@@ -20,12 +32,21 @@ export default class Inputfield extends Component {
   }
   
   render() {
-    const { labelText, labelTextSize, labelColor, borderColor, textColor, inputType, customStyle, onChangeText } = this.props;
-    const { secureInput } = this.state;
+    const { labelText, labelTextSize, labelColor, borderColor, textColor, inputType, customStyle, onChangeText, showCheckmark, autoFocus, autoCapitalize, checkColor } = this.props;
+    const { secureInput, scaleCheckmarkValue } = this.state;
     const fontSize = labelTextSize || 18;
     const color = labelColor || colors.peach;
     const borderBottomColor = borderColor;
     const inputColor = textColor || color.mainPurple;
+    const keyboardType = inputType === 'email' ? 'email-address' : 'default';
+    
+    const iconScale = scaleCheckmarkValue.interpolate({
+      inputRange: [0, 0.5, 1],
+      outputRange: [0.01, 1.6, 1]
+    });
+    
+    const scaleValue = showCheckmark ? 1 : 0;
+    this.scaleCheckmark(scaleValue);
     
     return (
       <View style={[{customStyle}, styles.wrapper]}>
@@ -38,12 +59,23 @@ export default class Inputfield extends Component {
             <Text style={styles.showHide}>{secureInput ? 'Show' : 'Hide'}</Text>
           </TouchableOpacity>
           : null }
+       <Animated.View style={[{ transform: [{scale: iconScale}]}, styles.checkWrapper]}>
+        <Icon 
+          color={checkColor}
+          name="check"
+          size={20}
+        />
+      </Animated.View>
+          
         <View style={[{ borderColor }, styles.borderBottom]}>
           <TextInput 
-            autoCorrect={false} 
             style={[{color: inputColor}, styles.inputField]}
             secureTextEntry={secureInput}
             onChangeText={onChangeText}
+            keyboardType={keyboardType}
+            autoFocus={autoFocus}
+            autoCapitalize={autoCapitalize}
+            autoCorrect={false} 
           />
         </View>
       </View>
@@ -59,7 +91,10 @@ Inputfield.propTypes = {
   inputColor: PropTypes.string,
   inputType: PropTypes.string.isRequired,
   customStyle: PropTypes.object,
-  onChangeText: PropTypes.func
+  onChangeText: PropTypes.func,
+  showCheckmark: PropTypes.bool.isRequired,
+  autoFOcus: PropTypes.bool,
+  autoCapitalize: PropTypes.bool,
 };
 
 const styles = StyleSheet.create({
@@ -79,7 +114,8 @@ const styles = StyleSheet.create({
   },
   
   inputField: {
-    fontSize: 18
+    fontSize: 18,
+    
   },
   
   showButton: {
@@ -91,6 +127,12 @@ const styles = StyleSheet.create({
   showHide: {
     color: colors.mainOrange,
     fontFamily: Fonts.JosefinSansBold
+  },
+  
+  checkWrapper: {
+    position: 'absolute',
+    right: 0,
+    top: 45,
   },
   
 });

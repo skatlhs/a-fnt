@@ -88,7 +88,7 @@ export default class LogIn extends Component {
   }
   
   render() {
-    const { formValid, loadingVisible } = this.state;
+    const { formValid, loadingVisible, validEmail, validPassword } = this.state;
     const showNotification = formValid ? false : true;
     return (
       <KeyboardAvoidingView style={styles.wrapper}>
@@ -112,6 +112,9 @@ export default class LogIn extends Component {
               inputType="email"
               customStyle={{ marginBottom: 30 }}
               onChangeText={this.handleEmailChange}
+              showCheckmark={validEmail}
+              autoFocus={false}
+              checkColor={colors.peach}
             />
 
             <InputField
@@ -123,7 +126,8 @@ export default class LogIn extends Component {
               inputType="password"
               customStyle={{ marginBottom: 30 }}
               onChangeText={this.handlePasswordChange}
-              
+              showCheckmark={validPassword}
+              checkColor={colors.mainOrange}
             />
 
           <NextArrowButton

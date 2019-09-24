@@ -1,16 +1,22 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { StatusBar, AppRegistry } from 'react-native';
 import { Provider } from 'react-redux';
 import store from './src/redux/store';
-import LoggedOut from './src/screens/LoggedOut';
-import LogIn from './src/screens/LogIn';
-import ForgotPassword from './src/screens/ForgotPassword';
+import { createReduxContainer } from 'react-navigation-redux-helpers';
+import { Root, configureStore} from './src/navigators/AppNavigator';
 
-export default class App extends Component{
+console.disableYellowBox = true;
+
+class App extends Component{
   render() {
     return (
-      <Provider store={store}>
-        <LogIn />
+      <Provider store={configureStore({})}>
+        <Root />
       </Provider>
     );
   }
 }
+
+AppRegistry.registerComponent('App', () => App);
+
+export default App;

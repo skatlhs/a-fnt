@@ -22,12 +22,14 @@ import Notification from '../components/Notification';
 import Loader from '../components/Loader';
 import LinearGradient from "react-native-linear-gradient";
 const COLORS_GRADIENTS = ["#ff3d78", "#ff7537"];
+import { transparentHeaderStyle } from '../styles/navigation';
 
 class LogIn extends Component {
 
   static navigationOptions = ({ navigation }) => ({
-    headerStyle: transparentHeaderStyle,
-    headerTintColor: colors.white,
+    headerTransparent: false,
+    headerTintColor: colors.peach,
+    title: '',
   });
 
   constructor(props) {

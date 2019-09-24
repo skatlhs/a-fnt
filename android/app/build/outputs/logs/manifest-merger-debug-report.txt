@@ -7,6 +7,7 @@ INJECTED from /Users/jonathanbelok/Documents/github/a-fnt/android/app/src/main/A
 MERGED from /Users/jonathanbelok/Documents/github/a-fnt/android/app/src/main/AndroidManifest.xml:1:1-26:12
 MERGED from [:react-native-linear-gradient] /Users/jonathanbelok/Documents/github/a-fnt/node_modules/react-native-linear-gradient/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-vector-icons] /Users/jonathanbelok/Documents/github/a-fnt/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-gesture-handler] /Users/jonathanbelok/Documents/github/a-fnt/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [com.facebook.react:react-native:0.60.5] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/5136cc79fc484fd8bb2e15fed771ea6b/AndroidManifest.xml:2:1-13:12
 MERGED from [com.facebook.fresco:fresco:2.0.0] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/747cd524b90f5bfef08e9ad9c3038e87/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:animated-gif:2.0.0] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/f0b3261614e0ded444873dad9189e0aa/AndroidManifest.xml:2:1-9:12
@@ -141,6 +142,8 @@ MERGED from [:react-native-linear-gradient] /Users/jonathanbelok/Documents/githu
 MERGED from [:react-native-linear-gradient] /Users/jonathanbelok/Documents/github/a-fnt/node_modules/react-native-linear-gradient/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] /Users/jonathanbelok/Documents/github/a-fnt/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] /Users/jonathanbelok/Documents/github/a-fnt/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] /Users/jonathanbelok/Documents/github/a-fnt/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] /Users/jonathanbelok/Documents/github/a-fnt/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.60.5] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/5136cc79fc484fd8bb2e15fed771ea6b/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.60.5] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/5136cc79fc484fd8bb2e15fed771ea6b/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.fresco:fresco:2.0.0] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/747cd524b90f5bfef08e9ad9c3038e87/AndroidManifest.xml:5:5-7:41

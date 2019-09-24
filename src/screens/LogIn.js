@@ -8,7 +8,9 @@ import {
   ScrollView,
   KeyboardAvoidingView
 } from "react-native";
-
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { ActionCreators } from '../redux/actions';
 import colors from "../styles/colors";
 import RoundedButton from "../components/buttons/RoundedButton";
 import NextArrowButton from "../components/buttons/NextArrowButton";
@@ -21,31 +23,39 @@ import Loader from '../components/Loader';
 import LinearGradient from "react-native-linear-gradient";
 const COLORS_GRADIENTS = ["#ff3d78", "#ff7537"];
 
+class LogIn extends Component {
 
-export default class LogIn extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    headerStyle: transparentHeaderStyle,
+    headerTintColor: colors.white,
+  });
+
   constructor(props) {
     super(props);
     this.state = {
       formValid: true,
       validEmail: false,
       emailAddress: '',
+      password: '',
       validPassword: false,
       loadingVisible: false,
     }
     this.handleCloseNotification = this.handleCloseNotification.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleNextButton = this.handleNextButton.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.toggleNextButtonState = this.toggleNextButtonState.bind(this);
   }
+
   handleNextButton() {
-    this.setState({ loadingVisible: true });
-    
-    setTimeout(() =>{
-    if (this.state.emailAddress === 'this@cc.ca' && this.state.validPassword) {
-      this.setState({ formValid: true, loadingVisible: false});
-    } else {
-      this.setState({ formValid: false, loadingVisible: false});
+  	this.setState({ loadingVisible: true });
+
+  	setTimeout(() => {
+      const { emailAddress, password } = this.state;
+      if (this.props.logIn(emailAddress, password)) {
+        this.setState({ formValid: true, loadingVisible: false });
+      } else {
+        this.setState({ formValid: false, loadingVisible: false });
       }
     }, 2000);
   }
@@ -53,7 +63,7 @@ export default class LogIn extends Component {
   handleCloseNotification() {
     this.setState({ formValid: true });
   }
-  
+
   handleEmailChange(email) {
     const emailCheckRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     this.setState({ emailAddress: email });
@@ -68,13 +78,15 @@ export default class LogIn extends Component {
       }
     }
   }
-  
+
   handlePasswordChange(password) {
+    this.setState({ password });
     if (!this.state.validPassword) {
-      if (password.length > 8) {
-        this.setState({ validPassword: true });
+      if (password.length > 4) {
+      	//Password has to be at least 4 characters long
+      	this.setState({ validPassword: true });
       }
-    } else if (password <= 8) {
+    } else if (password <= 4) {
       this.setState({ validPassword: false });
     }
   }
@@ -83,13 +95,15 @@ export default class LogIn extends Component {
     const { validEmail, validPassword } = this.state;
     if (validEmail && validPassword) {
       return false;
-    } 
+    }
     return true;
   }
-  
+
   render() {
-    const { formValid, loadingVisible, validEmail, validPassword } = this.state;
-    const showNotification = formValid ? false : true;
+  	const { formValid, loadingVisible, validEmail, validPassword } = this.state;
+  	const showNotification = formValid ? false : true;
+  	const background = formValid ? colors.green01 : colors.darkOrange;
+  	const notificationMarginTop = showNotification ? 10 : 0;
     return (
       <KeyboardAvoidingView style={styles.wrapper}>
         <View style={styles.centerWrapper}>
@@ -131,6 +145,7 @@ export default class LogIn extends Component {
             />
 
           <NextArrowButton
+            text="Log In"
             handleNextButton={this.handleNextButton}
             //disabled={this.toggleNextButtonState()}
           />
@@ -252,3 +267,15 @@ const styles = StyleSheet.create({
     fontSize: 20
   }
 });
+
+const mapStateToProps = (state) => {
+  return {
+    loggedInStatus: state.loggedInStatus,
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(ActionCreators, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LogIn);

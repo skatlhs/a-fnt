@@ -11,7 +11,7 @@ const COLORS_GRADIENTS = ["#ff3d78", "#ff7537"];
 
 export default class NextArrowButton extends Component {
   render() {
-  	const { disabled, handleNextButton } = this.props;
+  	const { text, disabled, handleNextButton } = this.props;
   	const opacityStyle = disabled ? 0.6 : 1;
     return (
       <View style={styles.buttonWrapper}>
@@ -28,7 +28,7 @@ export default class NextArrowButton extends Component {
         >
           <View style={styles.buttonTextWrapper2}>
             <View style={styles.buttonTextWrapper}>
-              <Text style={styles.buttonText}>Log In</Text>
+              <Text style={styles.buttonText}>{text}</Text>
             </View>
           </View>
         </LinearGradient>
@@ -41,6 +41,7 @@ export default class NextArrowButton extends Component {
 NextArrowButton.propTypes = {
   disabled: PropTypes.bool,
   handleNextButton: PropTypes.func,
+  text: PropTypes.string.isRequired,
 };
 
 const styles = StyleSheet.create({

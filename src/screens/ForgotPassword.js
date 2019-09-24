@@ -53,12 +53,12 @@ export default class ForgotPassword extends Component {
       if (this.state.emailAddress === 'i@aa.com') {
         this.setState({
           loadingVisible: false,
-          formValid: false,
+          formValid: true,
         });
       } else {
         this.setState({
           loadingVisible: false,
-          formValid: true,
+          formValid: false,
         });
       }
     }, 2000);
@@ -94,6 +94,7 @@ export default class ForgotPassword extends Component {
               customStyle={{ marginBottom: 30 }}
             />
           <NextArrowButton
+            text="Send Email"
             handleNextButton={this.goToNextStep}
           />
           </ScrollView>
@@ -103,8 +104,8 @@ export default class ForgotPassword extends Component {
               showNotification={showNotification}
               handleCloseNotification={this.handleCloseNotification}
               type="Error:"
-              firstLine="Email address doesn't match anything : /"
-              secondLine="in our database."
+              firstLine="Email address doesn't match anything"
+              secondLine="in our database : /"
              />
           </View>
         <Loader

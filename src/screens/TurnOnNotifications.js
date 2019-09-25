@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { transparentHeaderStyle } from '../styles/navigation';
 import colors from '../styles/colors';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import GradientButton from '../components/buttons/GradientButton';
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
+import { Fonts } from "../assets/utils/fonts";
 import { NavigationActions } from 'react-navigation';
 import {
   View,
   Text,
-  TouchableHighlight,
+  TouchableOpacity,
   StyleSheet,
 } from 'react-native';
 
@@ -16,10 +18,11 @@ const navigateToTabsAction = NavigationActions.navigate({
 });
 
 export default class TurnOnNotifications extends Component {
-  static navigationOptions = () => ({
+  static navigationOptions = ({ navigation }) => ({
+    headerTransparent: false,
+    headerTintColor: colors.peach,
+    title: 'Turn on Notifications',
     headerLeft: null,
-    headerStyle: transparentHeaderStyle,
-    gesturesEnabled: false,
   });
 
   constructor(props) {
@@ -59,34 +62,34 @@ export default class TurnOnNotifications extends Component {
   	  <View style={styles.wrapper}>
   	    <View style={styles.content}>
   	      <Icon
-  	        name="comments-o"
-  	        size={46}
+  	        name="speech"
+  	        size={56}
   	        style={styles.icon}
   	      />
   	      <Text style={styles.title}>
-  	        Turn on notifications?
+  	        Notifications!
   	      </Text>
   	      <Text style={styles.description}>
-  	        We can let you know when someone messages you, or notify you about other important account activity.
+  	        {"You'll"} be notified when someone contacts you, or any other important account activity.
   	      </Text>
-  	      <TouchableHighlight
+  	      <TouchableOpacity
   	        style={[{ backgroundColor: pressNotifyBtn ? colors.mainOrange : colors.peach }, styles.notifyButton]}
   	        onPress={() => this.props.navigation.dispatch(navigateToTabsAction)}
   	        onShowUnderlay={this.handleNotifyBtnShowUnderlay}
   	        onHideUnderlay={this.handleNotifyBtnHideUnderlay}
-  	        underlayColor={colors.mainOrange}
+  	        underlayColor={colors.peach}
   	      >
-  	        <Text style={[{ color: colors.white }, styles.buttonText]}>Yes, notify me</Text>
-  	      </TouchableHighlight>
-  	      <TouchableHighlight
+  	        <Text style={[{ color: colors.white }, styles.buttonText]}>Yes, {"I'd"} like notifications</Text>
+  	      </TouchableOpacity>
+  	      <TouchableOpacity
   	        style={[{ backgroundColor: pressSkipBtn ? colors.mainPurple : 'transparent' }, styles.skipButton]}
   	        onPress={() => this.props.navigation.dispatch(navigateToTabsAction)}
   	        onShowUnderlay={this.handleSkipBtnShowUnderlay}
   	        onHideUnderlay={this.handleSkipBtnHideUnderlay}
-  	        underlayColor={colors.mainPurple}
+  	        underlayColor={colors.peach}
   	      >
-  	        <Text style={[{ color: colors.peach }, styles.buttonText]}>Skip</Text>
-  	      </TouchableHighlight>
+  	        <Text style={[{ color: colors.peach }, styles.buttonText]}>{"I'll"} pass for now</Text>
+  	      </TouchableOpacity>
   	    </View> 
   	  </View>
   	);
@@ -109,20 +112,21 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 28,
-    color: colors.black,
-    fontWeight: '600',
+    color: colors.peach,
+    //fontFamily: Fonts.JosefinSansBold,
   },
   description: {
     fontSize: 16,
     paddingRight: 30,
     marginTop: 15,
     lineHeight: 22,
+    //fontFamily: Fonts.JosefinSansRegular
   },
   notifyButton: {
-  	width: 160,
+  	width: 260,
   	paddingTop: 12,
   	paddingBottom: 12,
-  	borderRadius: 3,
+  	borderRadius: 5,
   	marginTop: 40,
   },
   buttonText: {
@@ -132,11 +136,11 @@ const styles = StyleSheet.create({
   },
   skipButton: {
   	borderColor: colors.peach,
-  	width: 100,
-  	borderWidth: 2,
+  	width: 170,
+  	borderWidth: 1,
   	paddingTop: 12,
   	paddingBottom: 12,
-  	borderRadius: 3,
+  	borderRadius: 5,
   	marginTop: 15,
   }
 });

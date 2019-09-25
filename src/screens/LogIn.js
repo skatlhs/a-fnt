@@ -51,11 +51,13 @@ class LogIn extends Component {
 
   handleNextButton() {
   	this.setState({ loadingVisible: true });
-
+    const { navigate } = this.props.navigation;
+    
   	setTimeout(() => {
       const { emailAddress, password } = this.state;
       if (this.props.logIn(emailAddress, password)) {
         this.setState({ formValid: true, loadingVisible: false });
+        navigate('LoggedIn');
       } else {
         this.setState({ formValid: false, loadingVisible: false });
       }
@@ -108,13 +110,6 @@ class LogIn extends Component {
   	const notificationMarginTop = showNotification ? 10 : 0;
     return (
       <KeyboardAvoidingView style={styles.wrapper}>
-        <View style={styles.centerWrapper}>
-          <Image
-            source={require("../assets/img/bestrongLogoColors.png")}
-            style={styles.logo2}
-          />
-          <Text style={styles.slogan}>A new way to socialize</Text>
-        </View>
 
         <View style={styles.scrollViewWrapper}>
           <ScrollView style={styles.scrollView}>

@@ -8,6 +8,7 @@ MERGED from /Users/jonathanbelok/Documents/github/a-fnt/android/app/src/main/And
 MERGED from [:react-native-linear-gradient] /Users/jonathanbelok/Documents/github/a-fnt/node_modules/react-native-linear-gradient/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-vector-icons] /Users/jonathanbelok/Documents/github/a-fnt/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-gesture-handler] /Users/jonathanbelok/Documents/github/a-fnt/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-reanimated] /Users/jonathanbelok/Documents/github/a-fnt/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [com.facebook.react:react-native:0.60.5] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/5136cc79fc484fd8bb2e15fed771ea6b/AndroidManifest.xml:2:1-13:12
 MERGED from [com.facebook.fresco:fresco:2.0.0] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/747cd524b90f5bfef08e9ad9c3038e87/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:animated-gif:2.0.0] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/f0b3261614e0ded444873dad9189e0aa/AndroidManifest.xml:2:1-9:12
@@ -23,6 +24,7 @@ MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] /Users/jonathanbel
 MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/ef19da7fc527b969a93e2e9a8f869b43/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/b638de326ceb54b50bbf098710e2ddb9/AndroidManifest.xml:2:1-13:12
 MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/bc214ff9f2df293d8316d5274acdc2f3/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.transition:transition:1.0.0] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/0bea43c5b658bef32d3e1cdf52679e14/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.fragment:fragment:1.0.0] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/d52e9898b1917ee2c2ec78170c62ffa9/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/7b1d5726ace520635fea36b476c099d0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/91eccc0649cc4f0a2b8cfcd953158b62/AndroidManifest.xml:17:1-22:12
@@ -144,6 +146,8 @@ MERGED from [:react-native-vector-icons] /Users/jonathanbelok/Documents/github/a
 MERGED from [:react-native-vector-icons] /Users/jonathanbelok/Documents/github/a-fnt/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-gesture-handler] /Users/jonathanbelok/Documents/github/a-fnt/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-gesture-handler] /Users/jonathanbelok/Documents/github/a-fnt/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] /Users/jonathanbelok/Documents/github/a-fnt/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] /Users/jonathanbelok/Documents/github/a-fnt/node_modules/react-native-reanimated/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.60.5] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/5136cc79fc484fd8bb2e15fed771ea6b/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.60.5] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/5136cc79fc484fd8bb2e15fed771ea6b/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.fresco:fresco:2.0.0] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/747cd524b90f5bfef08e9ad9c3038e87/AndroidManifest.xml:5:5-7:41
@@ -174,6 +178,8 @@ MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/jonathanbelok/.gradle/
 MERGED from [com.facebook.soloader:soloader:0.6.0] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/b638de326ceb54b50bbf098710e2ddb9/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/bc214ff9f2df293d8316d5274acdc2f3/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/bc214ff9f2df293d8316d5274acdc2f3/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.transition:transition:1.0.0] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/0bea43c5b658bef32d3e1cdf52679e14/AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.0.0] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/0bea43c5b658bef32d3e1cdf52679e14/AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.0.0] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/d52e9898b1917ee2c2ec78170c62ffa9/AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.0.0] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/d52e9898b1917ee2c2ec78170c62ffa9/AndroidManifest.xml:20:5-44
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /Users/jonathanbelok/.gradle/caches/transforms-2/files-2.1/7b1d5726ace520635fea36b476c099d0/AndroidManifest.xml:20:5-44

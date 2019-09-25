@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import propTypes from 'prop-types';
 import colors from '../styles/colors';
 import { View, Image, Modal, Text, StyleSheet } from 'react-native';
+import { Fonts } from "../assets/utils/fonts";
 
 export default class Loader extends Component {
   render() {
@@ -19,6 +20,7 @@ export default class Loader extends Component {
                 style={styles.imgLoader}
                 source={require("../assets/img/colorLoad.gif")}
               />
+              <Text style={styles.loadingText}>Just a sec!</Text>
             </View>
           </View>
         </View>
@@ -66,5 +68,12 @@ const styles = StyleSheet.create({
     height: 80,
     top: 12
   },
+  
+  loadingText: {
+    color: colors.white,
+    fontFamily: Fonts.RobotoBold,
+    position: 'absolute',
+    top: 110,
+  }
   
 });

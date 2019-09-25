@@ -9,7 +9,7 @@ import {
   TouchableOpacity
 } from "react-native";
 
-import { transparentHeaderStyle } from '../styles/navigation';
+import { transparentHeaderStyle } from "../styles/navigation";
 import colors from "../styles/colors";
 import RoundedButton from "../components/buttons/RoundedButton";
 import NavBarButton from "../components/buttons/NavBarButton";
@@ -17,16 +17,22 @@ import { Fonts } from "../assets/utils/fonts";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 export default class LoggedOut extends Component {
-  
   static navigationOptions = ({ navigation }) => ({
-    headerRight: <NavBarButton handleButtonPress={() => navigation.navigate('LogIn')} location="right" color={colors.white} text="Log In" />,
+    headerRight: (
+      <NavBarButton
+        handleButtonPress={() => navigation.navigate("LogIn")}
+        location="right"
+        color={colors.white}
+        text="Log In"
+      />
+    ),
     headerTransparent: true,
-    headerTintColor: colors.white,
+    headerTintColor: colors.white
   });
 
   onFacebookPress() {
     alert("Facebook button pressed");
-  } 
+  }
 
   onCreatePress() {
     alert("Create button Pressed!");
@@ -40,12 +46,10 @@ export default class LoggedOut extends Component {
     alert("Terms pressed");
   }
 
-  
-  
   render() {
     return (
       <ImageBackground
-        source={require("../assets/img/socialBg4.png")}
+        source={require("../assets/img/socialBg5.png")}
         style={{ width: "100%", height: "100%" }}
       >
         <View style={styles.wrapper}>
@@ -55,8 +59,7 @@ export default class LoggedOut extends Component {
                 style={styles.logo2}
                 source={require("../assets/img/bestrongLogo.png")}
               />
-                     <Text style={styles.slogan}>A new way to socialize</Text>
-           
+              <Text style={styles.slogan}>A new way to socialize</Text>
             </View>
 
             <RoundedButton
@@ -156,14 +159,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center"
   },
-  
-  
+
   welcomeText: {
     color: colors.white,
     fontSize: 25,
     fontWeight: "100",
     marginTop: 70,
-    marginBottom: 20,
+    marginBottom: 20
   },
 
   facebookButtonIcon: {
@@ -206,6 +208,5 @@ const styles = StyleSheet.create({
 
   termLink: {
     color: colors.white
-  },
-
+  }
 });
